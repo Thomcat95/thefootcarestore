@@ -123,6 +123,20 @@
   .divider svg{display:block;width:100%;height:28px;}
   .divider path{fill:none;stroke:var(--line);stroke-width:1.5;}
 
+  /* ---------- FEATURED PRODUCT ---------- */
+  .featured-product{padding:32px 0;}
+  .fp-badge{
+    display:inline-block;font-family:'IBM Plex Mono';font-size:0.76rem;
+    letter-spacing:0.05em;text-transform:uppercase;color:var(--white);
+    background:#8A3B8F;padding:5px 12px;border-radius:20px;margin-bottom:14px;
+  }
+  .fp-card{
+    background:var(--white);border:2px solid #8A3B8F;border-radius:6px;
+    padding:24px;max-width:640px;
+  }
+  .fp-card h3{margin-bottom:8px;font-size:1.3rem;}
+  .fp-card p{color:#3A4544;}
+
   /* ---------- DISCLOSURE BANNER ---------- */
   .disclosure{
     background:var(--teal-deep);
@@ -169,6 +183,40 @@
 
   /* ---------- BLACK FRIDAY / CYBER MONDAY ---------- */
   .navlink-deals{color:var(--ochre) !important;font-weight:700;opacity:1 !important;}
+  .navlink-holiday{color:var(--teal) !important;font-weight:700;opacity:1 !important;}
+  .navlink-featured{color:#8A3B8F !important;font-weight:700;opacity:1 !important;}
+  .navlink-search{
+    background:none;border:none;cursor:pointer;
+    font-family:'IBM Plex Sans';font-size:0.88rem;
+    color:var(--teal-deep);opacity:0.75;transition:opacity .15s;
+    padding:0;
+  }
+  .navlink-search:hover{opacity:1;}
+
+  /* ---------- SEARCH OVERLAY ---------- */
+  #search-overlay{
+    display:none;position:fixed;top:64px;left:0;right:0;z-index:60;
+    background:var(--white);border-bottom:1px solid var(--line);
+    box-shadow:0 8px 24px rgba(20,32,31,0.12);
+    padding:18px 0;
+  }
+  #search-overlay.open{display:block;}
+  #search-overlay .wrap{max-width:720px;}
+  #search-input{
+    width:100%;font-family:'IBM Plex Sans';font-size:1rem;
+    padding:12px 16px;border:1px solid var(--line);border-radius:4px;
+    outline:none;
+  }
+  #search-input:focus{border-color:var(--teal);}
+  #search-results{margin-top:10px;max-height:340px;overflow-y:auto;}
+  #search-results a{
+    display:block;padding:10px 12px;border-radius:4px;
+    text-decoration:none;color:var(--teal-deep);font-size:0.95rem;
+    border-bottom:1px solid var(--line);
+  }
+  #search-results a:hover{background:var(--paper-2);}
+  #search-results .no-results{padding:10px 12px;color:#3A4544;font-size:0.9rem;}
+  .search-highlight{outline:3px solid var(--ochre);outline-offset:4px;transition:outline-color .8s;}
   .deals{padding:44px 0 52px;background:var(--white);border-top:2px solid var(--ochre);border-bottom:2px solid var(--ochre);}
   .deals-dates{display:inline-block;font-family:'IBM Plex Mono';font-size:0.76rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--white);background:var(--ochre);padding:5px 12px;border-radius:20px;margin-bottom:14px;}
   .deals h2{font-size:1.75rem;margin:4px 0 10px;}
@@ -275,14 +323,22 @@
     <!-- <div class="logo">The Foot Care<span> Store</span></div> -->
     <div class="logo">The Foot Care<span> Store&trade;</span></div>
     <div class="navlinks">
-      <a href="#bfcm-deals" class="navlink-deals">Black Friday Deals</a>
       <a href="#about">About</a>
       <a href="#shop-by-condition">Shop by Medical Condition</a>
       <a href="#shop-by-product">Shop by Product Type</a>
-      <a href="#suggest">Suggest a Product</a>
+      <a href="#holiday-gifts" class="navlink-holiday">Holiday Gift Guide</a>
+      <a href="#bfcm-deals" class="navlink-deals">Black Friday Deals</a>
+      <a href="#featured-product" class="navlink-featured">Featured Product</a>
       <a href="#disclaimer">Disclosure</a>
+      <button type="button" id="nav-search-toggle" class="navlink-search" aria-label="Search products">🔍 Search</button>
     </div>
 </nav>
+<div id="search-overlay">
+  <div class="wrap">
+    <input type="text" id="search-input" placeholder="Search for a product (e.g. compression socks, night splint)..." autocomplete="off">
+    <div id="search-results"></div>
+  </div>
+</div>
 <section class="hero">
   <div class="wrap">
     <div class="hero-text">
@@ -301,6 +357,16 @@
   </div>
 </section>
 
+<section class="featured-product" id="featured-product">
+  <div class="wrap">
+    <div class="fp-badge">Featured product of the month</div>
+    <div class="fp-card">
+      <h3>Coming soon</h3>
+      <p>Every month, I'll spotlight one product I genuinely recommend to patients — with the reasoning behind the pick. Check back soon for this month's feature.</p>
+    </div>
+  </div>
+</section>
+
 <section class="deals" id="bfcm-deals">
   <div class="wrap">
     <div class="deals-dates">Nov 27 – Dec 1, 2026</div>
@@ -313,43 +379,43 @@
         <span class="badge">Best seller</span>
         <h3>Percussion Massage Guns</h3>
         <p>Therabody and budget percussion massagers are consistently among the top-selling recovery gifts every November — check current holiday pricing.</p>
-        <a class="btn-buy amazon" href="#massage-guns">See picks →</a>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
       </div>
       <div class="card">
         <span class="badge">Best seller</span>
         <h3>Compression Socks</h3>
         <p>A perennial stocking-stuffer for anyone on their feet all day, or flying home for the holidays.</p>
-        <a class="btn-buy amazon" href="#compression-socks">See picks →</a>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
       </div>
       <div class="card">
         <span class="badge">Best seller</span>
         <h3>Athletic &amp; Walking Shoes</h3>
         <p>Shoe brands run some of their deepest discounts of the year around Black Friday and Cyber Monday.</p>
-        <a class="btn-buy amazon" href="#shoes">See picks →</a>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
       </div>
       <div class="card">
         <span class="badge">Best seller</span>
         <h3>Arch Support Insoles</h3>
         <p>An easy add-on gift, and one of the most repurchased items on this site year-round.</p>
-        <a class="btn-buy amazon" href="#insoles">See picks →</a>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
       </div>
       <div class="card">
         <span class="badge">Best seller</span>
         <h3>Foam Rollers</h3>
         <p>Low price point, high gift-ability — a reliable holiday mover for anyone active.</p>
-        <a class="btn-buy amazon" href="#foam-rollers">See picks →</a>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
       </div>
       <div class="card">
         <span class="badge">Best seller</span>
         <h3>Knee Compression Sleeves</h3>
         <p>Picked up by both athletes and anyone managing mild arthritis discomfort through the colder months.</p>
-        <a class="btn-buy amazon" href="#knee-support">See picks →</a>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
       </div>
       <div class="card">
         <span class="badge">Best seller</span>
         <h3>Foot Soak &amp; Self-Care Gift Sets</h3>
         <p>Epsom salts, balms, and pumice stones are classic holiday gift-set sellers — an easy, low-cost stocking stuffer.</p>
-        <a class="btn-buy amazon" href="#daily-self-care">See picks →</a>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
       </div>
     </div>
 
@@ -390,6 +456,77 @@
         <h3>Suction Grab Bar for Bathroom Safety</h3>
         <p>Preview pick from the upcoming senior mobility &amp; fall prevention category.</p>
         <a class="btn btn-amazon" href="https://www.amazon.com/s?k=suction+grab+bar+bathroom+safety&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Preview on Amazon →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deals" id="holiday-gifts">
+  <div class="wrap">
+    <h2>Holiday Gift Guide</h2>
+    <p class="cat-note">Skip the guesswork. These are the same products a board-certified foot and ankle surgeon recommends to his own patients — now organized as gift ideas for the people in your life managing pain, recovery, or an active lifestyle.</p>
+
+    <div class="section-label">For someone on their feet all day</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Gift pick</span>
+        <h3>Compression Socks</h3>
+        <p>Graduated compression socks are a go-to gift for nurses, retail workers, and anyone standing all day — see our top-rated picks for circulation and comfort.</p>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
+      </div>
+      <div class="card">
+        <span class="badge">Gift pick</span>
+        <h3>Arch Support Insoles</h3>
+        <p>A simple, practical gift that fits into any shoe — helps ease heel and arch pain for people on their feet all day.</p>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
+      </div>
+    </div>
+
+    <div class="section-label">For post-surgery or injury recovery</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Gift pick</span>
+        <h3>Recovery Boots &amp; Braces</h3>
+        <p>Supportive gear for someone healing from foot or ankle surgery — thoughtful gifts that speed recovery and ease daily movement.</p>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
+      </div>
+      <div class="card">
+        <span class="badge">Best seller</span>
+        <h3>Percussion Massage Guns</h3>
+        <p>Therabody and budget percussion massagers are consistently among the top-selling recovery gifts every November — check current holiday pricing.</p>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
+      </div>
+    </div>
+
+    <div class="section-label">For managing diabetic foot care</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Gift pick</span>
+        <h3>Diabetic Socks &amp; Foot Creams</h3>
+        <p>Seamless, non-binding diabetic socks and moisturizing foot creams make a caring, practical gift for anyone managing diabetic foot health.</p>
+        <a class="btn-buy amazon" href="#" data-pending="true">See picks →</a>
+      </div>
+    </div>
+
+    <div class="section-label">For the active person in your life</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge new">New</span>
+        <h3>New Balance Athletic Shoes</h3>
+        <p>Supportive, doctor-recommended athletic shoes make a lasting gift for runners, walkers, and anyone managing plantar fasciitis or sports strain.</p>
+        <a class="btn-buy" href="#" data-pending="true">See picks →</a>
+      </div>
+      <div class="card">
+        <span class="badge new">New</span>
+        <h3>Aetrex Comfort Shoes</h3>
+        <p>Orthotic-friendly, podiatrist-recommended footwear built for all-day comfort — a great gift for anyone managing foot pain year-round.</p>
+        <a class="btn-buy" href="#" data-pending="true">See picks →</a>
+      </div>
+      <div class="card">
+        <span class="badge new">New</span>
+        <h3>Orthofeet Diabetic-Friendly Shoes</h3>
+        <p>Extra-depth, seam-free shoes designed for sensitive feet — a thoughtful gift for anyone managing diabetic foot care or chronic discomfort.</p>
+        <a class="btn-buy" href="#" data-pending="true">See picks →</a>
       </div>
     </div>
   </div>
@@ -482,6 +619,7 @@
     <a class="chip" href="#nail-fungal">Nail &amp; Fungal Care</a>
     <a class="chip" href="#corns-calluses">Corns, Calluses &amp; Warts</a>
     <a class="chip" href="#braces">Sprains &amp; Instability</a>
+    <a class="chip" href="#ankle-sprains">Ankle Sprains &amp; Injuries</a>
     <a class="chip" href="#insoles">Flat Feet &amp; Arch Pain</a>
     <a class="chip" href="#post-surgical">Post-Surgical &amp; Wound Care</a>
     <a class="chip" href="#kids-feet">Kids' Foot Care</a>
@@ -525,10 +663,10 @@
         <p>Wider, deeper toe boxes accommodate custom inserts and reduce rubbing — one of the highest-impact changes for preventing skin breakdown.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=extra+depth+diabetic+shoes&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.aetrex.com/collections/diabetic-shoes" target="_blank" rel="nofollow sponsored noopener">Aetrex →</a>
-          <a class="btn-buy brand" href="https://orthofeet.com/collections/diabetic-shoes" target="_blank" rel="nofollow sponsored noopener">Orthofeet →</a>
-          <a class="btn-buy brand" href="https://www.newbalance.com/search?q=extra%20depth" target="_blank" rel="nofollow sponsored noopener">New Balance →</a>
-          <a class="btn-buy brand" href="https://dansko.com/collections/womens-shoes" target="_blank" rel="nofollow sponsored noopener">Dansko →</a>
+          <a class="btn-buy brand" href="https://www.aetrex.com/collections/diabetic-shoes" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Aetrex →</a>
+          <a class="btn-buy brand" href="https://orthofeet.com/collections/diabetic-shoes" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Orthofeet →</a>
+          <a class="btn-buy brand" href="https://www.newbalance.com/search?q=extra%20depth" data-pending="true" target="_blank" rel="nofollow sponsored noopener">New Balance →</a>
+          <a class="btn-buy brand" href="https://dansko.com/collections/womens-shoes" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Dansko →</a>
         </div>
       </div>
       <div class="card">
@@ -703,9 +841,9 @@
         <p>Built-in arch support and a firmer heel — my usual first recommendation for plantar fasciitis flare-ups.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=stability+walking+shoes+plantar+fasciitis&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.hoka.com/en/us/womens-walking/" target="_blank" rel="nofollow sponsored noopener">HOKA →</a>
-          <a class="btn-buy brand" href="https://www.newbalance.com/search?q=walking" target="_blank" rel="nofollow sponsored noopener">New Balance →</a>
-          <a class="btn-buy brand" href="https://www.vionicshoes.com/collections/walking" target="_blank" rel="nofollow sponsored noopener">Vionic →</a>
+          <a class="btn-buy brand" href="https://www.hoka.com/en/us/womens-walking/" data-pending="true" target="_blank" rel="nofollow sponsored noopener">HOKA →</a>
+          <a class="btn-buy brand" href="https://www.newbalance.com/search?q=walking" data-pending="true" target="_blank" rel="nofollow sponsored noopener">New Balance →</a>
+          <a class="btn-buy brand" href="https://www.vionicshoes.com/collections/walking" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Vionic →</a>
         </div>
       </div>
       <div class="card">
@@ -714,8 +852,8 @@
         <p>Extra room for bunions, hammertoes, or general forefoot crowding — comfort without sizing up and losing heel fit.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=wide+toe+box+sneakers&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.newbalance.com/search?q=wide%20width" target="_blank" rel="nofollow sponsored noopener">New Balance →</a>
-          <a class="btn-buy brand" href="https://www.aetrex.com/collections/wide-width" target="_blank" rel="nofollow sponsored noopener">Aetrex →</a>
+          <a class="btn-buy brand" href="https://www.newbalance.com/search?q=wide%20width" data-pending="true" target="_blank" rel="nofollow sponsored noopener">New Balance →</a>
+          <a class="btn-buy brand" href="https://www.aetrex.com/collections/wide-width" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Aetrex →</a>
         </div>
       </div>
       <div class="card">
@@ -724,8 +862,8 @@
         <p>Reduces forefoot pressure — useful during recovery from forefoot surgery or for arthritic joints (check with your surgeon on timing).</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=rocker+bottom+shoes&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://dansko.com/collections/womens-shoes" target="_blank" rel="nofollow sponsored noopener">Dansko →</a>
-          <a class="btn-buy brand" href="https://orthofeet.com/collections/rocker-sole-shoes" target="_blank" rel="nofollow sponsored noopener">Orthofeet →</a>
+          <a class="btn-buy brand" href="https://dansko.com/collections/womens-shoes" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Dansko →</a>
+          <a class="btn-buy brand" href="https://orthofeet.com/collections/rocker-sole-shoes" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Orthofeet →</a>
         </div>
       </div>
       <div class="card">
@@ -733,8 +871,8 @@
         <h3>Supportive Clogs for Long Shifts</h3>
         <p>Rigid arch support and a rocker-friendly base — a common recommendation for nurses, retail workers, and anyone on their feet all day.</p>
         <div class="buy-links">
-          <a class="btn-buy brand" href="https://dansko.com/collections/clogs" target="_blank" rel="nofollow sponsored noopener">Dansko →</a>
-          <a class="btn-buy brand" href="https://www.birkenstock.com/us/professional" target="_blank" rel="nofollow sponsored noopener">Birkenstock →</a>
+          <a class="btn-buy brand" href="https://dansko.com/collections/clogs" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Dansko →</a>
+          <a class="btn-buy brand" href="https://www.birkenstock.com/us/professional" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Birkenstock →</a>
         </div>
       </div>
     </div>
@@ -758,8 +896,8 @@
         <p>A firmer, structured insole for flat feet or fatigue after long days standing.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=semi+rigid+arch+support+insoles&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.aetrex.com/collections/orthotics" target="_blank" rel="nofollow sponsored noopener">Aetrex →</a>
-          <a class="btn-buy brand" href="https://www.birkenstock.com/us/insoles" target="_blank" rel="nofollow sponsored noopener">Birkenstock →</a>
+          <a class="btn-buy brand" href="https://www.aetrex.com/collections/orthotics" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Aetrex →</a>
+          <a class="btn-buy brand" href="https://www.birkenstock.com/us/insoles" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Birkenstock →</a>
         </div>
       </div>
       <div class="card">
@@ -843,7 +981,7 @@
         <p>Common pick for mild sprains or chronic instability during activity.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=lace+up+ankle+brace&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/ankle-braces" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
+          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/ankle-braces" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
         </div>
       </div>
       <div class="card">
@@ -851,6 +989,45 @@
         <h3>Plantar Fasciitis Night Splint</h3>
         <p>Keeps the foot in gentle stretch overnight — one of the more evidence-backed OTC options for morning heel pain.</p>
         <a class="btn btn-amazon" href="https://www.amazon.com/s?k=plantar+fasciitis+night+splint&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANKLE SPRAINS ============ -->
+<section class="category" id="ankle-sprains">
+  <div class="wrap">
+    <div class="cat-head">
+      <div>
+        <div class="eyebrow">Shop by condition</div>
+        <h2>Ankle Sprains &amp; Injuries</h2>
+      </div>
+      <p class="cat-note">From a fresh rolled ankle to ongoing instability after a prior sprain — these are the products I most often reach for, organized by stage of recovery.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="tag">Acute injury</div>
+        <h3>RICE Recovery Kit (Wrap, Ice Pack, Elevation Wedge)</h3>
+        <p>The first 48-72 hours after a sprain matter most. A compression wrap, reusable ice pack, and elevation wedge cover the basics of early care.</p>
+        <a class="btn btn-amazon" href="https://www.amazon.com/s?k=ankle+sprain+rice+recovery+kit&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+      </div>
+      <div class="card">
+        <div class="tag">Stabilization</div>
+        <h3>Lace-Up Ankle Brace</h3>
+        <p>Supports the joint during the healing phase or for anyone managing chronic mild instability from a past sprain.</p>
+        <a class="btn btn-amazon" href="https://www.amazon.com/s?k=lace+up+ankle+brace+sprain&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+      </div>
+      <div class="card">
+        <div class="tag">Rehab</div>
+        <h3>Resistance Band Ankle Rehab Kit</h3>
+        <p>Once acute pain settles, light resistance work helps rebuild strength and proprioception — key for avoiding repeat sprains.</p>
+        <a class="btn btn-amazon" href="https://www.amazon.com/s?k=ankle+rehab+resistance+band+kit&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+      </div>
+      <div class="card">
+        <div class="tag">Balance training</div>
+        <h3>Wobble Board / Balance Trainer</h3>
+        <p>A standard tool in ankle rehab protocols for retraining balance and stability after an injury.</p>
+        <a class="btn btn-amazon" href="https://www.amazon.com/s?k=ankle+wobble+board+balance+trainer&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
       </div>
     </div>
   </div>
@@ -1042,7 +1219,7 @@
         <p>A firm heel and flexible forefoot support healthy gait development during growth spurts.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=supportive+kids+sneakers&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.newbalance.com/kids/" target="_blank" rel="nofollow sponsored noopener">New Balance Kids →</a>
+          <a class="btn-buy brand" href="https://www.newbalance.com/kids/" data-pending="true" target="_blank" rel="nofollow sponsored noopener">New Balance Kids →</a>
         </div>
       </div>
       <div class="card">
@@ -1099,7 +1276,7 @@
         <p>Light, breathable support for mild arthritis discomfort or activity-related aching.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=compression+knee+sleeve&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/knee-braces" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
+          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/knee-braces" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
         </div>
       </div>
       <div class="card">
@@ -1108,7 +1285,7 @@
         <p>More structured support for ligament strain or instability during activity, typically used short-term.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=hinged+knee+brace&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/knee-braces" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
+          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/knee-braces" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
         </div>
       </div>
       <div class="card">
@@ -1138,7 +1315,7 @@
         <p>Provides light compression along the shin to ease discomfort during walking or light activity.</p>
         <div class="buy-links">
           <a class="btn-buy amazon" href="https://www.amazon.com/s?k=shin+splint+compression+sleeve&tag=thefootcare00-20" target="_blank" rel="nofollow sponsored noopener">Amazon →</a>
-          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/lower-leg" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
+          <a class="btn-buy brand" href="https://www.bauerfeind.com/en-us/collections/lower-leg" data-pending="true" target="_blank" rel="nofollow sponsored noopener">Bauerfeind →</a>
         </div>
       </div>
       <div class="card">
@@ -1405,8 +1582,103 @@
 
   document.addEventListener('click', function(e){
     var link = e.target.closest('a.btn-amazon, a.btn-buy');
-    if (link) trackClick(link);
+    if (link && link.getAttribute('data-pending') !== 'true') trackClick(link);
   }, true);
+})();
+</script>
+
+
+<script>
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('[data-pending="true"]');
+  if (!link) return;
+  e.preventDefault();
+  var msg = document.createElement('div');
+  msg.textContent = 'Coming soon — check back shortly!';
+  msg.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--teal-deep);color:var(--paper);padding:10px 18px;border-radius:8px;font-size:14px;z-index:9999;';
+  document.body.appendChild(msg);
+  setTimeout(function() { msg.remove(); }, 2500);
+});
+</script>
+
+<script>
+(function(){
+  var toggle = document.getElementById('nav-search-toggle');
+  var overlay = document.getElementById('search-overlay');
+  var input = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  var index = [];
+
+  function buildIndex(){
+    var cards = document.querySelectorAll('.card');
+    cards.forEach(function(card){
+      var h3 = card.querySelector('h3');
+      if (!h3) return;
+      var section = card.closest('section[id]');
+      var sectionName = section && section.querySelector('h2') ? section.querySelector('h2').textContent.trim() : '';
+      index.push({
+        title: h3.textContent.trim(),
+        section: sectionName,
+        el: card
+      });
+    });
+  }
+
+  function openOverlay(){
+    overlay.classList.add('open');
+    input.value = '';
+    results.innerHTML = '';
+    setTimeout(function(){ input.focus(); }, 50);
+  }
+
+  function closeOverlay(){
+    overlay.classList.remove('open');
+  }
+
+  toggle.addEventListener('click', function(){
+    if (overlay.classList.contains('open')) { closeOverlay(); } else { openOverlay(); }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeOverlay();
+  });
+
+  document.addEventListener('click', function(e){
+    if (overlay.classList.contains('open') && !overlay.contains(e.target) && e.target !== toggle) {
+      closeOverlay();
+    }
+  });
+
+  input.addEventListener('input', function(){
+    var q = input.value.trim().toLowerCase();
+    results.innerHTML = '';
+    if (!q) return;
+    var matches = index.filter(function(item){
+      return item.title.toLowerCase().indexOf(q) !== -1;
+    }).slice(0, 12);
+    if (!matches.length){
+      var none = document.createElement('div');
+      none.className = 'no-results';
+      none.textContent = 'No products found for "' + input.value + '"';
+      results.appendChild(none);
+      return;
+    }
+    matches.forEach(function(item){
+      var a = document.createElement('a');
+      a.href = '#';
+      a.textContent = item.title + (item.section ? ' — ' + item.section : '');
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        closeOverlay();
+        item.el.scrollIntoView({behavior:'smooth', block:'center'});
+        item.el.classList.add('search-highlight');
+        setTimeout(function(){ item.el.classList.remove('search-highlight'); }, 2000);
+      });
+      results.appendChild(a);
+    });
+  });
+
+  buildIndex();
 })();
 </script>
 
