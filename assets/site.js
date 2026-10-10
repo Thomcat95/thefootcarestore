@@ -140,7 +140,7 @@ document.addEventListener('click', function(e) {
   });
 
   document.addEventListener('click', function(e){
-    if (navlinks.classList.contains('open') && !navlinks.contains(e.target) && e.target !== hamburger) {
+    if (navlinks.classList.contains('open') && !navlinks.contains(e.target) && !hamburger.contains(e.target)) {
       closeMobileNav();
     }
   });
