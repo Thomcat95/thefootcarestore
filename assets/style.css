@@ -389,3 +389,19 @@
   }
   .compare-list-card h3{margin:0 0 6px;font-size:1.05rem;}
   .compare-list-card .compare-meta{font-family:'IBM Plex Mono';font-size:0.76rem;color:#6B756F;text-transform:uppercase;letter-spacing:0.03em;}
+
+  /* ---------- SEASONAL BANNERS (homepage) ---------- */
+  .season-banners{padding:28px 0 4px;}
+  .season-banners .wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .sb{display:flex;flex-direction:column;gap:6px;text-decoration:none;border-radius:10px;
+      padding:24px 26px;transition:transform .15s, box-shadow .15s;}
+  .sb:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,32,31,0.22);}
+  .sb-kicker{font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;}
+  .sb-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.55rem;line-height:1.15;}
+  .sb-text{font-size:0.95rem;}
+  .sb-cta{margin-top:8px;font-weight:600;font-size:0.95rem;}
+  .sb-holiday{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-deep) 100%);color:var(--white);}
+  .sb-holiday .sb-kicker,.sb-holiday .sb-cta{color:var(--ochre);}
+  .sb-deals{background:linear-gradient(135deg,#D9A23A 0%,var(--ochre) 100%);color:var(--teal-deep);}
+  .sb-deals .sb-kicker{color:var(--teal-deep);opacity:0.8;}
+  @media (max-width:760px){ .season-banners .wrap{grid-template-columns:1fr;} .sb-title{font-size:1.3rem;} }
