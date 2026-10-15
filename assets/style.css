@@ -405,3 +405,25 @@
   .sb-deals{background:linear-gradient(135deg,#D9A23A 0%,var(--ochre) 100%);color:var(--teal-deep);}
   .sb-deals .sb-kicker{color:var(--teal-deep);opacity:0.8;}
   @media (max-width:760px){ .season-banners .wrap{grid-template-columns:1fr;} .sb-title{font-size:1.3rem;} }
+
+  /* ---------- MENU HOVER HIGHLIGHT ---------- */
+  .navlinks a, .navlinks .navlink-search{
+    border-radius:6px;
+    transition:background-color .15s, color .15s, opacity .15s, box-shadow .15s;
+  }
+  /* desktop: padding and matching negative margin give each item a pill to fill without moving anything */
+  @media (min-width:641px){
+    .navlinks a, .navlinks .navlink-search{padding:6px 9px;margin:-6px -9px;align-self:flex-start;}
+  }
+  .navlinks a:hover, .navlinks a:focus-visible,
+  .navlinks .navlink-search:hover, .navlinks .navlink-search:focus-visible{
+    background:var(--teal);
+    color:var(--white) !important;
+    opacity:1 !important;
+    text-shadow:0 0 .7px currentColor, 0 0 .7px currentColor;
+    box-shadow:0 4px 12px rgba(20,32,31,0.28);
+    outline:none;
+  }
+  .navlinks a.navlink-holiday:hover, .navlinks a.navlink-holiday:focus-visible{background:var(--teal-deep);}
+  .navlinks a.navlink-deals:hover, .navlinks a.navlink-deals:focus-visible{background:var(--ochre);color:var(--teal-deep) !important;}
+  .navlinks a.navlink-featured:hover, .navlinks a.navlink-featured:focus-visible{background:#8A3B8F;}
