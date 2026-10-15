@@ -82,8 +82,10 @@
     var section = link.closest('section[id]');
     var productName = card ? (card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'unknown') : 'unknown';
     var categoryId = section ? section.id : 'unknown';
-    var retailer = retailerFromHref(link.href);
-    var linkType = link.classList.contains('amazon') || link.classList.contains('btn-amazon') ? 'amazon' : 'brand';
+    var retailer = link.getAttribute('data-retailer') || retailerFromHref(link.href);
+    var linkType = link.classList.contains('amazon') || link.classList.contains('btn-amazon') ? 'amazon'
+      : link.classList.contains('retailer') ? 'retailer' : 'brand';
+    if (link.getAttribute('data-brand')) productName = link.getAttribute('data-brand') + (productName !== 'unknown' && productName !== link.getAttribute('data-brand') ? ' / ' + productName : '');
 
     if (typeof gtag === 'function'){
       gtag('event', 'affiliate_click', {
@@ -98,7 +100,8 @@
 
   document.addEventListener('click', function(e){
     var link = e.target.closest('a.btn-amazon, a.btn-buy');
-    if (link && link.getAttribute('data-pending') !== 'true') trackClick(link);
+    // Skip "Coming soon" buttons and links to other pages on this site (only outbound partner clicks count)
+    if (link && link.getAttribute('data-pending') !== 'true' && link.hostname !== location.hostname) trackClick(link);
   }, true);
 })();
 
