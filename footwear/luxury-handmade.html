@@ -62,50 +62,51 @@
 <p class="cat-note">Most shoes have the sole glued on (cemented), and when it wears through, the shoe is done. A welted shoe sews a leather strip, the welt, to the upper and insole, then stitches the outsole to the welt, so a cobbler can replace the sole many times.</p>
 </div>
 <div class="card" style="overflow-x:auto;">
-<svg style="display:block;width:100%;min-width:560px;height:auto;" viewBox="0 0 640 310" role="img" aria-labelledby="anat-title anat-desc">
+<svg style="display:block;width:100%;min-width:560px;height:auto;" viewBox="0 0 640 330" role="img" aria-labelledby="anat-title anat-desc">
 <title id="anat-title">Cross-section of a Goodyear-welted boot sole</title>
-<desc id="anat-desc">Cut across the width of the boot: the leather upper wraps under the leather insole and is stitched to the insole rib together with the welt. Cork filler and a shank sit under the insole. The outsole is stitched to the welt.</desc>
+<desc id="anat-desc">Cut across the width of the boot: the leather upper curves around the foot and wraps under the leather insole, where it is stitched to the insole rib together with a narrow welt. Cork filler and a shank sit under the insole. A thick outsole is stitched to the welt.</desc>
 <style>
- .lb{font:500 13px 'IBM Plex Sans',sans-serif;fill:#16302D}
+ .lb{font:500 13px 'IBM Plex Sans',Arial,sans-serif;fill:#16302D}
  .ld{stroke:#5B655F;stroke-width:1;fill:none}
- .st{stroke:#F2E6CF;stroke-width:2;stroke-dasharray:3 3;fill:none}
+ .st{stroke:#F2E6CF;stroke-width:1.8;stroke-dasharray:3 2.5;fill:none}
 </style>
-<!-- upper (leather), wrapped under the insole edge -->
-<path d="M178 28 C172 90 170 150 176 196 Q182 214 214 220 L214 228 Q172 224 164 200 C156 150 158 90 164 28 Z" fill="#7A4A2A"/>
-<path d="M462 28 C468 90 470 150 464 196 Q458 214 426 220 L426 228 Q468 224 476 200 C484 150 482 90 476 28 Z" fill="#7A4A2A"/>
-<!-- lining -->
-<path d="M180 28 C175 90 173 150 179 194 Q184 208 202 206 L202 202 Q188 202 184 192 C179 150 181 90 186 28 Z" fill="#D8C3A0"/>
-<path d="M460 28 C465 90 467 150 461 194 Q456 208 438 206 L438 202 Q452 202 456 192 C461 150 459 90 454 28 Z" fill="#D8C3A0"/>
-<!-- leather insole + rib -->
-<rect x="196" y="202" width="248" height="14" rx="2" fill="#C9A06A"/>
-<rect x="208" y="216" width="10" height="14" fill="#B08654"/>
-<rect x="422" y="216" width="10" height="14" fill="#B08654"/>
-<!-- cork filler and shank -->
-<rect x="218" y="216" width="204" height="18" fill="#DDBE8E"/>
-<g fill="#C8A574" opacity=".7"><circle cx="240" cy="224" r="2"/><circle cx="262" cy="229" r="1.6"/><circle cx="372" cy="223" r="2"/><circle cx="398" cy="229" r="1.6"/><circle cx="280" cy="222" r="1.4"/></g>
-<rect x="292" y="220" width="56" height="9" rx="2" fill="#5E6E6D"/>
-<!-- welts -->
-<rect x="140" y="226" width="78" height="10" rx="2" fill="#8A5A35"/>
-<rect x="422" y="226" width="78" height="10" rx="2" fill="#8A5A35"/>
-<!-- outsole -->
-<rect x="134" y="236" width="372" height="22" rx="4" fill="#3B2A20"/>
-<!-- welt stitch (through welt, upper and rib) and outsole stitch (through welt and outsole) -->
-<path class="st" d="M176 231 L212 222"/>
-<path class="st" d="M464 231 L428 222"/>
-<path class="st" d="M150 228 L150 256"/>
-<path class="st" d="M490 228 L490 256"/>
+<!-- outsole: thick, only slightly wider than the welt -->
+<path d="M200 256 H440 Q448 256 448 264 V286 Q448 294 438 294 H202 Q192 294 192 286 V264 Q192 256 200 256 Z" fill="#3B2A20"/>
+<!-- narrow welts -->
+<rect x="200" y="248" width="44" height="8" rx="1.5" fill="#8A5A35"/>
+<rect x="396" y="248" width="44" height="8" rx="1.5" fill="#8A5A35"/>
+<!-- cork filler and shank between the insole ribs -->
+<rect x="244" y="236" width="152" height="20" fill="#DDBE8E"/>
+<g fill="#C8A574" opacity=".75"><circle cx="258" cy="244" r="1.8"/><circle cx="276" cy="250" r="1.4"/><circle cx="366" cy="243" r="1.8"/><circle cx="384" cy="250" r="1.4"/><circle cx="290" cy="241" r="1.2"/><circle cx="352" cy="251" r="1.2"/></g>
+<rect x="296" y="242" width="48" height="8" rx="2" fill="#5E6E6D"/>
+<!-- insole ribs -->
+<rect x="236" y="234" width="8" height="16" fill="#B08654"/>
+<rect x="396" y="234" width="8" height="16" fill="#B08654"/>
+<!-- leather insole, slightly dished -->
+<path d="M226 224 Q320 218 414 224 L414 236 Q320 232 226 236 Z" fill="#C9A06A"/>
+<!-- lining: follows the inside of the upper -->
+<path d="M224 26 C209 78 199 138 204 180 C207 204 214 216 228 222" stroke="#D8C3A0" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M416 26 C431 78 441 138 436 180 C433 204 426 216 412 222" stroke="#D8C3A0" stroke-width="5" fill="none" stroke-linecap="round"/>
+<!-- upper: rounded around the foot, lasted under the insole to the rib -->
+<path d="M213 22 C196 78 185 138 191 184 C195 214 210 232 238 240" stroke="#7A4A2A" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M427 22 C444 78 455 138 449 184 C445 214 430 232 402 240" stroke="#7A4A2A" stroke-width="10" fill="none" stroke-linecap="round"/>
+<!-- welt stitch through welt, upper and rib; outsole stitch through welt and outsole -->
+<path class="st" d="M214 252 L240 241"/>
+<path class="st" d="M426 252 L400 241"/>
+<path class="st" d="M208 250 L208 290"/>
+<path class="st" d="M432 250 L432 290"/>
 <!-- labels left -->
-<text class="lb" x="12" y="60">Leather upper</text><path class="ld" d="M104 56 L168 70"/>
-<text class="lb" x="12" y="110">Leather lining</text><path class="ld" d="M108 106 L180 120"/>
-<text class="lb" x="12" y="180">Welt stitch</text><path class="ld" d="M88 176 L190 226"/>
-<text class="lb" x="12" y="214">Welt</text><path class="ld" d="M46 210 L144 230"/>
-<text class="lb" x="12" y="292">Outsole stitch</text><path class="ld" d="M112 286 L150 252"/>
+<text class="lb" x="12" y="70">Leather upper</text><path class="ld" d="M104 66 L190 84"/>
+<text class="lb" x="12" y="124">Leather lining</text><path class="ld" d="M108 120 L201 130"/>
+<text class="lb" x="12" y="200">Welt stitch</text><path class="ld" d="M88 196 L226 246"/>
+<text class="lb" x="12" y="236">Welt</text><path class="ld" d="M46 232 L201 252"/>
+<text class="lb" x="12" y="316">Outsole stitch</text><path class="ld" d="M112 310 L208 284"/>
 <!-- labels right -->
-<text class="lb" x="628" y="150" text-anchor="end">Leather insole</text><path class="ld" d="M530 146 L440 206"/>
-<text class="lb" x="628" y="184" text-anchor="end">Insole rib</text><path class="ld" d="M556 180 L432 222"/>
-<text class="lb" x="628" y="214" text-anchor="end">Cork filler</text><path class="ld" d="M552 210 L410 226"/>
-<text class="lb" x="628" y="292" text-anchor="end">Outsole</text><path class="ld" d="M574 288 L500 252"/>
-<text class="lb" x="330" y="292" text-anchor="middle">Shank</text><path class="ld" d="M320 280 L320 230"/>
+<text class="lb" x="628" y="164" text-anchor="end">Leather insole</text><path class="ld" d="M530 160 L398 226"/>
+<text class="lb" x="628" y="200" text-anchor="end">Insole rib</text><path class="ld" d="M556 196 L403 240"/>
+<text class="lb" x="628" y="236" text-anchor="end">Cork filler</text><path class="ld" d="M552 232 L384 247"/>
+<text class="lb" x="628" y="316" text-anchor="end">Outsole</text><path class="ld" d="M574 310 L446 284"/>
+<text class="lb" x="320" y="320" text-anchor="middle">Shank</text><path class="ld" d="M320 306 L320 250"/>
 </svg>
 <p style="font-size:0.9rem;">Cross-section across the width of a Goodyear-welted boot. Stitchdown and Blake-stitched shoes can also be resoled, by different methods.</p>
 </div>
