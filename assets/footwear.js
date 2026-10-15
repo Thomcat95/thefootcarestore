@@ -134,16 +134,16 @@
       (pending ? ' data-pending="true"' : '') + ' data-retailer="' + esc(retailer) + '" data-brand="' + esc(brand) + '">' + esc(label) + ' →</a>';
   }
   function card(b, idPrefix){
-    var who = b.who.split('').map(function(c){ return WHO[c]; }).join(' · ');
-    var feats = b.needs.map(function(n){ return '<span class="feat">' + esc(NEEDS[n].label) + '</span>'; }).join('');
+    var who = b.who.split('').map(function(c){ return WHO[c]; }).join(', ');
+    var feats = b.needs.map(function(n){ return NEEDS[n].label.toLowerCase(); });
     var links = [];
     if (b.amazonQ) links.push(btn('amazon', amazon(b.amazonQ), 'Amazon', false, 'amazon', b.name));
     links.push(btn('brand', b.brandUrl, b.name, !b.live, b.key, b.name));
-    b.retailers.forEach(function(r){ links.push(btn('retailer', RETAILERS[r].url(b.name), RETAILERS[r].name, true, r, b.name)); });
-    return '<div class="card brand-card" id="' + idPrefix + '-' + b.key + '">' +
+    b.retailers.forEach(function(r){ links.push(btn('brand', RETAILERS[r].url(b.name), RETAILERS[r].name, true, r, b.name)); });
+    return '<div class="card" id="' + idPrefix + '-' + b.key + '">' +
       '<div class="tag">' + esc(b.tag) + '</div><h3>' + esc(b.name) + '</h3>' +
-      '<div class="who">' + esc(who) + '</div><p>' + esc(b.blurb) + '</p>' +
-      (feats ? '<div class="feats">' + feats + '</div>' : '') +
+      '<p>' + esc(b.blurb) + '</p>' +
+      '<p>For: ' + esc(who) + (feats.length ? '. Look for: ' + esc(feats.join(', ')) : '') + '.</p>' +
       '<div class="buy-links">' + links.join('') + '</div></div>';
   }
 
@@ -171,14 +171,16 @@
              (state.need === 'all' || b.needs.indexOf(state.need) !== -1);
     });
     grid.innerHTML = shown.length ? shown.map(function(b){ return card(b, 'brand'); }).join('')
-      : '<div class="fw-empty">No brands match all three filters. Try “Everyone” or “Any style”.</div>';
+      : '<p class="cat-note">No brands match all three filters. Try “Everyone” or “Any style”.</p>';
     explain.textContent = state.need === 'all' ? '' : NEEDS[state.need].text;
     count.textContent = shown.length + (shown.length === 1 ? ' brand' : ' brands') + ' shown';
   }
   function press(group, value){
     state[group] = value;
     Array.prototype.forEach.call(document.querySelectorAll('[data-' + group + ']'), function(b){
-      b.setAttribute('aria-pressed', String(b.getAttribute('data-' + group) === value));
+      var on = b.getAttribute('data-' + group) === value;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
     });
     render();
   }
