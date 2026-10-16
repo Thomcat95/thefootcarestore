@@ -158,7 +158,7 @@ document.addEventListener('click', function(e) {
 
   function fetchIndex(){
     if (productIndex) return Promise.resolve(productIndex);
-    return fetch((window.__BASE||'')+'assets/products.json')
+    return fetch((window.__BASE||'')+'assets/products.json?v=20261016')
       .then(function(r){ return r.json(); })
       .then(function(data){ productIndex = data; return data; })
       .catch(function(){ productIndex = []; return []; });
