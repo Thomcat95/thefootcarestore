@@ -50,7 +50,8 @@
       amazonQ:'orthofeet shoes', brandUrl:'https://www.orthofeet.com/', retailers:['zappos'] },
     { key:'vionic', name:'Vionic', who:'wm', style:['casual','dress'], needs:['stability'], tag:'Arch support',
       blurb:'Casual and dress shoes and sandals with a contoured, supportive footbed built in.',
-      amazonQ:'vionic shoes', brandUrl:'https://www.vionicshoes.com/', retailers:['zappos','dsw'] },
+      amazonQ:'vionic shoes', brandUrl:'https://www.vionicshoes.com/', retailers:['zappos','dsw'],
+      extraLinks:[{ label:'ShoeMall', retailer:'shoemall', url:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=37847&murl=https%3A%2F%2Fwww.shoemall.com%2Fsearch%3Fq%3Dvionic&u1=vionic' }] },
     { key:'dansko', name:'Dansko', who:'wm', style:['casual'], needs:['rocker','stability','standing'], tag:'Clogs for long shifts',
       blurb:'Clogs with a firm heel and a rocker bottom, common in hospitals and kitchens.',
       amazonQ:'dansko clogs', brandUrl:'https://www.dansko.com/', retailers:['zappos','nordstrom'] },
@@ -62,7 +63,8 @@
       amazonQ:'clarks shoes', brandUrl:'https://www.clarks.com/', retailers:['zappos','dsw'] },
     { key:'ecco', name:'ECCO', who:'mw', style:['dress','casual','sports'], needs:['toebox','standing'], tag:'European comfort',
       blurb:'Leather dress and casual shoes on an anatomical last with a roomier forefoot than most dress shoes.',
-      amazonQ:'ecco shoes', brandUrl:'https://www.ecco.com/', retailers:['zappos','nordstrom'] },
+      amazonQ:'ecco shoes', brandUrl:'https://www.ecco.com/', retailers:['zappos','nordstrom'],
+      brandLinks:[{ label:'ECCO Men', url:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=39558&murl=https%3A%2F%2Fus.ecco.com%2Fmen%2Fshoes&u1=mens-shoes' }, { label:'ECCO Women', url:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=39558&murl=https%3A%2F%2Fus.ecco.com%2Fwomen%2Fshoes&u1=womens' }] },
     { key:'colehaan', name:'Cole Haan', who:'mw', style:['dress','casual'], needs:[], tag:'Hybrid dress',
       blurb:'Dress shoes with sneaker-style cushioning for long days in office attire.',
       amazonQ:'cole haan shoes', brandUrl:'https://www.colehaan.com/', retailers:['nordstrom','zappos'] },
@@ -138,8 +140,12 @@
     var feats = b.needs.map(function(n){ return NEEDS[n].label.toLowerCase(); });
     var links = [];
     if (b.amazonQ) links.push(btn('amazon', amazon(b.amazonQ), 'Amazon', false, 'amazon', b.name));
-    links.push(btn('brand', b.brandUrl, b.name, !b.live, b.key, b.name));
+    // brandLinks: separate live links per line (e.g. men's and women's); otherwise one brand button
+    if (b.brandLinks) b.brandLinks.forEach(function(l){ links.push(btn('brand', l.url, l.label, false, b.key, b.name)); });
+    else links.push(btn('brand', b.brandUrl, b.name, !b.live, b.key, b.name));
     b.retailers.forEach(function(r){ links.push(btn('brand', RETAILERS[r].url(b.name), RETAILERS[r].name, true, r, b.name)); });
+    // extraLinks: live partner retailers with their own tracking link
+    (b.extraLinks || []).forEach(function(l){ links.push(btn('brand', l.url, l.label, false, l.retailer, b.name)); });
     return '<div class="card" id="' + idPrefix + '-' + b.key + '">' +
       '<div class="tag">' + esc(b.tag) + '</div><h3>' + esc(b.name) + '</h3>' +
       '<p>' + esc(b.blurb) + '</p>' +
