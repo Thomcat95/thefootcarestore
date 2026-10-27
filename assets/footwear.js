@@ -103,7 +103,7 @@
       amazonQ:'sorel winter boots', brandUrl:'https://www.sorel.com/', retailers:['zappos','nordstrom'], winter:true },
     { key:'ugg', name:'UGG', who:'mwk', style:['boots','casual'], needs:[], tag:'Sheepskin boots',
       blurb:'Sheepskin boots and slippers. Warm, but with little arch support, so best for short wear.',
-      amazonQ:'ugg boots', brandUrl:'https://www.ugg.com/', retailers:['zappos','nordstrom'], winter:true },
+      amazonQ:'ugg boots', brandUrl:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=43728&murl=https%3A%2F%2Fwww.ugg.com&u1=footwear-hub', live:true, retailers:['zappos','nordstrom'], winter:true },
     { key:'lucchese', name:'Lucchese', who:'mw', style:['boots'], needs:['widths'], tag:'Handmade western', luxury:true,
       blurb:'Handmade western boots, in production since 1883, with leather lining and a molded leather insole.',
       amazonQ:'', brandUrl:'https://www.lucchese.com/', retailers:['bootbarn'] },
