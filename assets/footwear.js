@@ -102,7 +102,7 @@
       blurb:'Insulated, waterproof winter boots for snow, slush and cold commutes.',
       amazonQ:'sorel winter boots', brandUrl:'https://www.sorel.com/', retailers:['zappos','nordstrom'], winter:true },
     { key:'ugg', name:'UGG', who:'mwk', style:['boots','casual'], needs:[], tag:'Sheepskin boots',
-      blurb:'Sheepskin boots and slippers. Warm, but with little arch support, so best for short wear.',
+      blurb:'Sheepskin boots and slippers. UGG recommends a snug fit, and says its footbed molds to the natural contours of the foot.',
       amazonQ:'ugg boots', brandUrl:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=43728&murl=https%3A%2F%2Fwww.ugg.com&u1=footwear-hub', live:true, retailers:['zappos','nordstrom'], winter:true },
     { key:'lucchese', name:'Lucchese', who:'mw', style:['boots'], needs:['widths'], tag:'Handmade western', luxury:true,
       blurb:'Handmade western boots, in production since 1883, with leather lining and a molded leather insole.',
