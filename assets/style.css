@@ -362,6 +362,7 @@
   .suggest button:disabled{opacity:0.6;cursor:default;}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
   footer a{color:#5B655F;text-decoration:underline;}
+  footer .footer-disclosure{flex-basis:100%;font-size:0.8rem;}
 
   /* ---------- COMPARISON TABLES ---------- */
   .compare-hero{padding:16px 0 8px;}
