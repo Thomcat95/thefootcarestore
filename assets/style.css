@@ -428,3 +428,7 @@
   .navlinks a.navlink-holiday:hover, .navlinks a.navlink-holiday:focus-visible{background:var(--teal-deep);}
   .navlinks a.navlink-deals:hover, .navlinks a.navlink-deals:focus-visible{background:var(--ochre);color:var(--teal-deep) !important;}
   .navlinks a.navlink-featured:hover, .navlinks a.navlink-featured:focus-visible{background:#8A3B8F;}
+
+/* ---------- TOP-OF-PAGE AFFILIATE NOTE ---------- */
+.affiliate-note{font-size:0.8rem;color:#555;padding:8px 0 0;}
+.affiliate-note a{color:inherit;text-decoration:underline;}
