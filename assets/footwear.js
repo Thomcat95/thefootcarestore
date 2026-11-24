@@ -57,7 +57,7 @@
       amazonQ:'dansko clogs', brandUrl:'https://www.dansko.com/', retailers:['zappos','nordstrom'] },
     { key:'birkenstock', name:'Birkenstock', who:'mwk', style:['casual'], needs:['toebox'], tag:'Sandals & clogs',
       blurb:'Contoured cork footbeds with plenty of room for the toes to spread.',
-      amazonQ:'birkenstock', brandUrl:'https://www.birkenstock.com/us/', retailers:['zappos','nordstrom'] },
+      amazonQ:'', brandUrl:'https://www.birkenstock.com/us/', retailers:['zappos','nordstrom'] },
     { key:'clarks', name:'Clarks', who:'mwk', style:['dress','casual'], needs:['widths'], tag:'Dress & casual',
       blurb:'Dress and casual shoes, including children\'s school shoes, with wide widths in many styles.',
       amazonQ:'clarks shoes', brandUrl:'https://www.clarks.com/', retailers:['zappos','dsw'] },
