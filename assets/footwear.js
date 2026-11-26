@@ -63,7 +63,7 @@
       amazonQ:'clarks shoes', brandUrl:'https://www.clarks.com/', retailers:['zappos','dsw'] },
     { key:'ecco', name:'ECCO', who:'mw', style:['dress','casual','sports'], needs:['toebox','standing'], tag:'European comfort',
       blurb:'Leather dress and casual shoes on an anatomical last with a roomier forefoot than most dress shoes.',
-      amazonQ:'ecco shoes', brandUrl:'https://www.ecco.com/', retailers:['zappos','nordstrom'],
+      amazonQ:'ecco shoes', brandUrl:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=39558&murl=https%3A%2F%2Fus.ecco.com%2F&u1=footwear-hub', live:true, retailers:['zappos','nordstrom'],
       brandLinks:[{ label:'ECCO Men', url:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=39558&murl=https%3A%2F%2Fus.ecco.com%2Fmen%2Fshoes&u1=mens-shoes' }, { label:'ECCO Women', url:'https://click.linksynergy.com/deeplink?id=FeBQBOTajKw&mid=39558&murl=https%3A%2F%2Fus.ecco.com%2Fwomen%2Fshoes&u1=womens' }] },
     { key:'colehaan', name:'Cole Haan', who:'mw', style:['dress','casual'], needs:[], tag:'Hybrid dress',
       blurb:'Dress shoes with sneaker-style cushioning for long days in office attire.',
